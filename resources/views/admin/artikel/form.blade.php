@@ -1,6 +1,10 @@
-@extends('layouts.admin.admin')
-@section('content')
-<div class="max-w-lg mx-auto bg-white rounded shadow p-6">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ isset($artikel) ? 'Edit Artikel' : 'Tambah Artikel' }}
+        </h2>
+    </x-slot>
+    <div class="max-w-lg mx-auto bg-white rounded shadow p-6">
     <h2 class="text-xl font-bold mb-4">{{ isset($artikel) ? 'Edit Artikel' : 'Tambah Artikel' }}</h2>
     <form method="POST" enctype="multipart/form-data" action="{{ isset($artikel) ? route('admin.artikel.update', $artikel->id) : route('admin.artikel.store') }}">
         @csrf
@@ -52,4 +56,4 @@
         </div>
     </form>
 </div>
-@endsection
+</x-app-layout>

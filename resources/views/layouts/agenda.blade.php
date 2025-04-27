@@ -11,27 +11,25 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans text-gray-700 bg-[#f5f5f2] antialiased">
-    <!-- Header & Navbar -->
-    <header class="bg-white shadow-sm">
-      <div class="max-w-6xl mx-auto flex items-center justify-between py-2 px-4">
-        <!-- Current Time on Home -->
-
-        <div class="flex items-center gap-3">
-          <a href="/home" class="flex items-center gap-3">
-            <img src="{{ asset('aset/logoMasjid.svg') }}" alt="Logo" class="w-16 h-16 object-contain">
-            <span class="text-xl font-bold text-gray-700">Masjid Jami Tangkubanperahu</span>
-          </a>
-        </div>
-        <nav class="flex gap-2 md:gap-4 items-center">
-          <a href="/home" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Home</a>
-          <a href="#" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Agenda</a>
-          <a href="/artikel" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Artikel</a>
-          <a href="/berita" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Berita</a>
-          <a href="/informasi" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Informasi</a>
-          <span id="currentTimeHome" class="font-mono text-xs text-gray-700 bg-white px-3 py-1 rounded-full ml-1"></span>
-        </nav>
+  <!-- Header & Navbar -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between py-2 px-4">
+      <div class="flex items-center gap-3">
+        <a href="/home" class="flex items-center gap-3">
+          <img src="{{ asset('aset/logoMasjid.svg') }}" alt="Logo" class="w-16 h-16 object-contain">
+          <span class="text-xl font-bold text-gray-700">Masjid Jami Tangkubanperahu</span>
+        </a>
       </div>
-    </header>
+      <nav class="flex gap-2 md:gap-4">
+        <a href="/home" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Home</a>
+        <a href="/agenda" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Agenda</a>
+        <a href="/artikel" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Artikel</a>
+        <a href="/berita" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#a5a15a] transition font-bold">Berita</a>
+        <a href="/informasi" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Informasi</a>
+        <span id="currentTimeHome" class="font-mono text-xs text-gray-700 bg-white px-3 py-1 rounded-full ml-1"></span>
+      </nav>
+    </div>
+  </header>
 
       <!-- Footer dengan peta -->
   <footer class="mt-10 bg-[#e8e8e3] border-t border-gray-200 relative overflow-hidden">

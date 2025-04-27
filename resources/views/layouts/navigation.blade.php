@@ -15,6 +15,21 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link href="/admin/artikel" :active="request()->is('admin/artikel*')">
+                        {{ __('Artikel') }}
+                    </x-nav-link>
+                    <x-nav-link href="/admin/berita" :active="request()->is('admin/berita*')">
+                        {{ __('Berita') }}
+                    </x-nav-link>
+                    <x-nav-link href="/admin/galeri" :active="request()->is('admin/galeri*')">
+                        {{ __('Galeri') }}
+                    </x-nav-link>
+                    <x-nav-link href="/admin/konsultasi" :active="request()->is('admin/konsultasi*')">
+                        {{ __('Konsultasi') }}
+                    </x-nav-link>
+                    <x-nav-link href="/admin/reservasi" :active="request()->is('admin/reservasi*')">
+                        {{ __('Reservasi') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -1,5 +1,4 @@
-@extends('layouts.admin.admin')
-@section('content')
+<x-app-layout>
 <div class="max-w-lg mx-auto bg-white rounded shadow p-6">
     <h2 class="text-xl font-bold mb-4">{{ isset($berita) ? 'Edit Berita' : 'Tambah Berita' }}</h2>
     <form method="POST" enctype="multipart/form-data" action="{{ isset($berita) ? route('admin.berita.update', $berita->id) : route('admin.berita.store') }}">
@@ -28,4 +27,4 @@
         </div>
     </form>
 </div>
-@endsection
+</x-app-layout>

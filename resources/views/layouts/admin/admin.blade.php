@@ -13,14 +13,7 @@
           <img src="{{ asset('aset/logoMasjid.svg') }}" alt="Logo" class="w-12 h-12 object-contain">
           <span class="text-xl font-bold text-white">Admin Masjid Jami Tangkubanperahu</span>
         </div>
-        <nav class="flex gap-3">
-          <a href="/admin" class="text-white font-semibold hover:underline">Dashboard</a>
-          <a href="/admin/artikel" class="text-white font-semibold hover:underline">Artikel</a>
-          <a href="/admin/galeri" class="text-white font-semibold hover:underline">Galeri</a>
-          <a href="/admin/konsultasi" class="text-white font-semibold hover:underline">Konsultasi</a>
-          <a href="/admin/reservasi" class="text-white font-semibold hover:underline">Reservasi</a>
-          <a href="/" class="text-red-400 font-semibold hover:underline">Logout</a>
-        </nav>
+
       </div>
     </header>
 
