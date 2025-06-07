@@ -63,6 +63,7 @@ Route::get('/admin/dashboard', function () {
 Route::resource('/admin/artikel', App\Http\Controllers\AdminArtikelController::class)->names('admin.artikel');
 Route::resource('/admin/konsultasi', App\Http\Controllers\AdminKonsultasiController::class)->only(['index'])->names('admin.konsultasi');
 Route::resource('admin/berita', App\Http\Controllers\AdminBeritaController::class)->names('admin.berita');
+Route::resource('admin/reservasi', App\Http\Controllers\AdminReservasiController::class)->names('admin.reservasi');
 Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
 Route::post('/admin/orders/{order}/complete', [AdminController::class, 'completeOrder'])->name('admin.orders.complete');
 Route::prefix('admin')->middleware(['auth'])->group(function () {
