@@ -16,9 +16,9 @@
         </div>
     @endif
 
-    <div class="bg-white/20 dark:bg-gray-800/40 backdrop-blur-md rounded shadow p-4">
-        <table class="min-w-full bg-white/10 rounded shadow text-white">
-            <thead class="bg-white/10">
+    <div class="bg-white/20 dark:bg-black-800/40 backdrop-blur-md rounded shadow p-4">
+        <table class="min-w-full bg-white/10 rounded shadow text-black">
+            <thead class="bg-black/10">
                 <tr>
                     <th class="p-2 font-semibold">Tanggal</th>
                     <th class="p-2 font-semibold">Jenis</th>
