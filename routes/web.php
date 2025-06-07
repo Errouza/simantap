@@ -16,6 +16,7 @@ use App\Http\Controllers\ReservasiController;
 use App\Http\Controllers\ZakatController;
 use App\Http\Controllers\AdminArtikelController;
 use App\Http\Controllers\AdminBeritaController;
+use App\Http\Controllers\AdminKeuanganController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\MualafController;
 
@@ -64,6 +65,11 @@ Route::resource('/admin/konsultasi', App\Http\Controllers\AdminKonsultasiControl
 Route::resource('admin/berita', App\Http\Controllers\AdminBeritaController::class)->names('admin.berita');
 Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
 Route::post('/admin/orders/{order}/complete', [AdminController::class, 'completeOrder'])->name('admin.orders.complete');
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::resource('keuangan', AdminKeuanganController::class)->names('admin.keuangan');
+
+});
+
 
 // ====== Fitur User (masih gunakan middleware role:user) ======
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -124,6 +130,12 @@ Route::post('/konsultasi', [KonsultasiController::class, 'store'])->name('konsul
 
 // Route untuk halaman galeri
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
+
+Route::get('/laporan-keuangan', function () {
+    return view('layouts.laporan-keuangan');
+})->name('laporan-keuangan');
+
+
 
 // API Kalkulator Zakat
 Route::post('/api/zakat/hitung', function(Request $request) {

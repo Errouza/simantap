@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Home') }}</title>
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ config('app.name', 'berita') }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans text-gray-700 bg-[#f5f5f2] antialiased">
-  <!-- Header & Navbar -->
   <header class="bg-white shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between py-2 px-4">
       <div class="flex items-center gap-3">
@@ -26,35 +22,117 @@
         <a href="/artikel" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Artikel</a>
         <a href="/berita" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#a5a15a] transition font-bold">Berita</a>
         <a href="/informasi" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Informasi</a>
-        <a href="/laporan-keuangan" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Laporan-keuangan</a>
-
+	<a href="/laporan-keuangan" class="bg-[#d2cc8c] rounded-full px-3 py-1 text-xs md:text-sm font-semibold shadow hover:bg-[#c6be7b] transition">Laporan-keuangan</a>
         <span id="currentTimeHome" class="font-mono text-xs text-gray-700 bg-white px-3 py-1 rounded-full ml-1"></span>
       </nav>
     </div>
   </header>
 
-      <!-- Footer dengan peta -->
-  <footer class="mt-10 bg-[#e8e8e3] border-t border-gray-200 relative overflow-hidden">
+  <main class="max-w-6xl mx-auto py-10 px-4">
+  <h1 class="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">Laporan Keuangan Masjid</h1>
+
+  <!-- Ringkasan -->
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-2 text-gray-700">Ringkasan Saldo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl shadow p-4">
+        <p class="text-sm text-gray-500">Saldo Awal</p>
+        <p class="text-xl font-bold text-green-600">Rp 5.000.000</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4">
+        <p class="text-sm text-gray-500">Pemasukan</p>
+        <p class="text-xl font-bold text-blue-600">Rp 3.500.000</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4">
+        <p class="text-sm text-gray-500">Pengeluaran</p>
+        <p class="text-xl font-bold text-red-600">Rp 2.000.000</p>
+      </div>
+    </div>
+    <div class="mt-4 bg-gray-100 rounded-xl p-4">
+      <p class="text-sm text-gray-500">Saldo Akhir</p>
+      <p class="text-2xl font-bold text-gray-800">Rp 6.500.000</p>
+    </div>
+  </section>
+
+  <!-- Tabel Pemasukan -->
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-2 text-gray-700">Detail Pemasukan</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white rounded-xl shadow text-sm">
+        <thead class="bg-[#d2cc8c] text-gray-800">
+          <tr>
+            <th class="py-2 px-4 text-left">Tanggal</th>
+            <th class="py-2 px-4 text-left">Keterangan</th>
+            <th class="py-2 px-4 text-left">Jumlah</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-2 px-4">01 Mei 2025</td>
+            <td class="py-2 px-4">Infaq Jumat</td>
+            <td class="py-2 px-4 text-green-700 font-semibold">Rp 2.000.000</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4">10 Mei 2025</td>
+            <td class="py-2 px-4">Donasi Program Ramadhan</td>
+            <td class="py-2 px-4 text-green-700 font-semibold">Rp 1.500.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Tabel Pengeluaran -->
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-2 text-gray-700">Detail Pengeluaran</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white rounded-xl shadow text-sm">
+        <thead class="bg-[#d2cc8c] text-gray-800">
+          <tr>
+            <th class="py-2 px-4 text-left">Tanggal</th>
+            <th class="py-2 px-4 text-left">Keterangan</th>
+            <th class="py-2 px-4 text-left">Jumlah</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-2 px-4">05 Mei 2025</td>
+            <td class="py-2 px-4">Pembelian Karpet</td>
+            <td class="py-2 px-4 text-red-600 font-semibold">Rp 1.200.000</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-4">12 Mei 2025</td>
+            <td class="py-2 px-4">Operasional Listrik</td>
+            <td class="py-2 px-4 text-red-600 font-semibold">Rp 800.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+  
+   <!-- Footer dengan peta -->
+   <footer class="mt-10 bg-[#e8e8e3] border-t border-gray-200 relative overflow-hidden">
     <img src="{{ asset('aset/imagemasjid.svg') }}" alt="Footer Background" class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none" />
     <div class="relative max-w-6xl mx-auto py-8 px-4 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
       <div class="flex flex-col items-center md:items-start gap-2">
         <img src="{{ asset('aset/logoMasjid.svg') }}" alt="Logo" class="w-21 h-21 object-contain">
         <p class="text-sm font-semibold">Selamat Datang Di Website Resmi Masjid Jami<br>Tangkubanperahu, Jakarta</p>
-        <a href="/admin" class="ml-2 bg-[#232323] text-white px-2 py-1 rounded text-xs font-semibold hover:bg-[#4b4b2e] transition shadow">Admin</a>
-
       </div>
       <div class="md:col-span-2 flex justify-center">
-      <div class="relative w-full">
-        <button id="toggleMapFullscreen" type="button" class="absolute z-20 top-2 right-2 bg-[#d2cc8c] hover:bg-[#c6be7b] text-gray-800 px-3 py-1 rounded shadow-md text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-yellow-400">
-          <span id="fullscreenIcon">⛶</span> Fullscreen
-        </button>
-        <iframe id="mapFrame" src="https://www.openstreetmap.org/export/embed.html?bbox=106.833574%2C-6.208285%2C106.835574%2C-6.206285&amp;layer=mapnik&amp;marker=-6.207285,106.834574" class="w-full h-96 rounded-xl border border-gray-300 shadow transition-all duration-300" allowfullscreen loading="lazy"></iframe>
-      </div>
+  <div class="relative w-full">
+    <button id="toggleMapFullscreen" type="button" class="absolute z-20 top-2 right-2 bg-[#d2cc8c] hover:bg-[#c6be7b] text-gray-800 px-3 py-1 rounded shadow-md text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-yellow-400">
+      <span id="fullscreenIcon">⛶</span> Fullscreen
+    </button>
+    <iframe id="mapFrame" src="https://www.openstreetmap.org/export/embed.html?bbox=106.833574%2C-6.208285%2C106.835574%2C-6.206285&layer=mapnik&marker=-6.207285,106.834574" class="w-full h-96 rounded-xl border border-gray-300 shadow transition-all duration-300" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
     </div>
   </footer>
-
+</body>
 <script>
-  // Toggle fullscreen untuk map
+// Toggle fullscreen untuk map (sama seperti home.blade.php)
 const toggleMapFullscreenBtn = document.getElementById('toggleMapFullscreen');
 const mapFrame = document.getElementById('mapFrame');
 const fullscreenIcon = document.getElementById('fullscreenIcon');
@@ -117,7 +195,6 @@ if (toggleMapFullscreenBtn && mapFrame) {
   });
 }
 
-// function untuk update time
 function pad(n){return n<10?'0'+n:n;}
 function updateCurrentTimeHome() {
     const now = new Date();
@@ -131,6 +208,4 @@ function updateCurrentTimeHome() {
 setInterval(updateCurrentTimeHome, 1000);
 updateCurrentTimeHome();
 </script>
-
-</body>
 </html>
