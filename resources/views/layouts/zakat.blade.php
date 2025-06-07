@@ -61,18 +61,15 @@
                     <input type="number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2eaf68]" id="total" placeholder="Rp.">
                 </div>
                 <div>
-                    <label for="nisabBulan" class="block font-medium text-sm mb-1">Nisab per bulan</label>
-                    <input type="number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2eaf68]" id="nisabBulan" placeholder="Rp.">
-                </div>
-                <div>
                     <label for="nisabTahun" class="block font-medium text-sm mb-1">Nisab per tahun</label>
                     <input type="number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#2eaf68]" id="nisabTahun" placeholder="Rp.">
                 </div>
                 <div class="flex justify-between gap-4 pt-2">
                     <button type="reset" class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 rounded-lg shadow transition">Reset</button>
-                    <button type="submit" class="flex-1 bg-green-800 hover:bg-green-900 text-white font-semibold py-2 rounded-lg shadow transition">Hitung Zakat</button>
+                    <button id="btnHitung" type="button" class="flex-1 bg-green-800 hover:bg-green-900 text-white font-semibold py-2 rounded-lg shadow transition">Hitung Zakat</button>
                 </div>
             </form>
+             <div id="hasilZakat" class="mt-6 text-center text-green-700 font-bold text-lg hidden"></div>
         </div>
     </div>
 </div>
@@ -173,5 +170,31 @@ function updateCurrentTimeHome() {
 }
 setInterval(updateCurrentTimeHome, 1000);
 updateCurrentTimeHome();
+
+ document.getElementById("btnHitung").addEventListener("click", function () {
+      const gaji = parseFloat(document.getElementById("gaji").value) || 0;
+      const lain = parseFloat(document.getElementById("lain").value) || 0;
+      const total = gaji + lain;
+      const nisabTahun = parseFloat(document.getElementById("nisabTahun").value) || 0;
+      const nisabBulanan = nisabTahun / 12;
+
+      document.getElementById("total").value = total;
+
+      const hasilElem = document.getElementById("hasilZakat");
+
+      if (total >= nisabBulanan) {
+        const zakat = total * 0.025;
+        hasilElem.innerHTML = `✅ <strong>Wajib Zakat</strong><br>2.5% x Rp ${total.toLocaleString('id-ID')} = <strong>Rp ${zakat.toLocaleString('id-ID')}</strong>`;
+      } else {
+        hasilElem.innerHTML = `❌ <strong>Tidak Wajib Zakat</strong><br>Karena penghasilan Rp ${total.toLocaleString('id-ID')} < nisab bulanan Rp ${nisabBulanan.toLocaleString('id-ID')}`;
+      }
+
+      hasilElem.classList.remove("hidden");
+    });
+
+    function resetForm() {
+      document.getElementById("hasilZakat").classList.add("hidden");
+      document.getElementById("hasilZakat").innerHTML = "";
+    }
 </script>
 </html>
