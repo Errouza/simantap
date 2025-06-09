@@ -64,7 +64,9 @@ Route::resource('/admin/artikel', App\Http\Controllers\AdminArtikelController::c
 Route::resource('/admin/konsultasi', App\Http\Controllers\AdminKonsultasiController::class)->only(['index'])->names('admin.konsultasi');
 Route::resource('admin/berita', App\Http\Controllers\AdminBeritaController::class)->names('admin.berita');
 Route::resource('admin/reservasi', App\Http\Controllers\AdminReservasiController::class)->names('admin.reservasi');
-Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
+Route::resource('/admin/galeri', App\Http\Controllers\GaleriController::class)->names('admin.galeri');
+Route::get('/admin/galeri', [App\Http\Controllers\AdminGaleriController::class, 'index'])->name('admin.galeri.index');
+Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri.index'); // untuk user
 Route::post('/admin/orders/{order}/complete', [AdminController::class, 'completeOrder'])->name('admin.orders.complete');
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('keuangan', AdminKeuanganController::class)->names('admin.keuangan');
