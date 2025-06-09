@@ -23,17 +23,17 @@
             </div>
 
             <div class="mb-4">
-                <label for="keterangan" class="block text-white mb-1">Keterangan</label>
+                <label for="keterangan" class="block text-black mb-1">Keterangan</label>
                 <input type="text" id="keterangan" name="keterangan" class="w-full rounded p-2 text-gray-800" required>
             </div>
 
             <div class="mb-4">
-                <label for="jumlah" class="block text-white mb-1">Jumlah (Rp)</label>
+                <label for="jumlah" class="block text-black mb-1">Jumlah (Rp)</label>
                 <input type="number" step="0.01" id="jumlah" name="jumlah" class="w-full rounded p-2 text-gray-800" required>
             </div>
 
             <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Simpan</button>
-            <a href="{{ route('admin.keuangan.index') }}" class="ml-2 text-white underline">Batal</a>
+            <a href="{{ route('admin.keuangan.index') }}" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Batal</a>
         </form>
     </div>
 </x-app-layout>

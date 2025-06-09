@@ -31,85 +31,87 @@
   <main class="max-w-6xl mx-auto py-10 px-4">
   <h1 class="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">Laporan Keuangan Masjid</h1>
 
-  <!-- Ringkasan -->
-  <section class="mb-10">
-    <h2 class="text-xl font-semibold mb-2 text-gray-700">Ringkasan Saldo</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="bg-white rounded-xl shadow p-4">
-        <p class="text-sm text-gray-500">Saldo Awal</p>
-        <p class="text-xl font-bold text-green-600">Rp 5.000.000</p>
+<!-- Ringkasan -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Ringkasan Saldo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl shadow p-4">
+          <p class="text-sm text-gray-500">Saldo Awal</p>
+          <p class="text-xl font-bold text-green-600">Rp {{ number_format($saldoAwal, 0, ',', '.') }}</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-4">
+          <p class="text-sm text-gray-500">Pemasukan</p>
+          <p class="text-xl font-bold text-blue-600">Rp {{ number_format($pemasukan, 0, ',', '.') }}</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-4">
+          <p class="text-sm text-gray-500">Pengeluaran</p>
+          <p class="text-xl font-bold text-red-600">Rp {{ number_format($pengeluaran, 0, ',', '.') }}</p>
+        </div>
       </div>
-      <div class="bg-white rounded-xl shadow p-4">
-        <p class="text-sm text-gray-500">Pemasukan</p>
-        <p class="text-xl font-bold text-blue-600">Rp 3.500.000</p>
+      <div class="mt-4 bg-gray-100 rounded-xl p-4">
+        <p class="text-sm text-gray-500">Saldo Akhir</p>
+        <p class="text-2xl font-bold text-gray-800">Rp {{ number_format($saldoAkhir, 0, ',', '.') }}</p>
       </div>
-      <div class="bg-white rounded-xl shadow p-4">
-        <p class="text-sm text-gray-500">Pengeluaran</p>
-        <p class="text-xl font-bold text-red-600">Rp 2.000.000</p>
-      </div>
-    </div>
-    <div class="mt-4 bg-gray-100 rounded-xl p-4">
-      <p class="text-sm text-gray-500">Saldo Akhir</p>
-      <p class="text-2xl font-bold text-gray-800">Rp 6.500.000</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Tabel Pemasukan -->
-  <section class="mb-10">
-    <h2 class="text-xl font-semibold mb-2 text-gray-700">Detail Pemasukan</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white rounded-xl shadow text-sm">
-        <thead class="bg-[#d2cc8c] text-gray-800">
-          <tr>
-            <th class="py-2 px-4 text-left">Tanggal</th>
-            <th class="py-2 px-4 text-left">Keterangan</th>
-            <th class="py-2 px-4 text-left">Jumlah</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200">
-          <tr>
-            <td class="py-2 px-4">01 Mei 2025</td>
-            <td class="py-2 px-4">Infaq Jumat</td>
-            <td class="py-2 px-4 text-green-700 font-semibold">Rp 2.000.000</td>
-          </tr>
-          <tr>
-            <td class="py-2 px-4">10 Mei 2025</td>
-            <td class="py-2 px-4">Donasi Program Ramadhan</td>
-            <td class="py-2 px-4 text-green-700 font-semibold">Rp 1.500.000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <!-- Tabel Pemasukan -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Detail Pemasukan</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-xl shadow text-sm">
+          <thead class="bg-[#d2cc8c] text-gray-800">
+            <tr>
+              <th class="py-2 px-4 text-left">Tanggal</th>
+              <th class="py-2 px-4 text-left">Keterangan</th>
+              <th class="py-2 px-4 text-left">Jumlah</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            @forelse ($laporans->where('jenis', 'pemasukan') as $laporan)
+              <tr>
+                <td class="py-2 px-4">{{ \Carbon\Carbon::parse($laporan->tanggal)->format('d M Y') }}</td>
+                <td class="py-2 px-4">{{ $laporan->keterangan }}</td>
+                <td class="py-2 px-4 text-green-700 font-semibold">Rp {{ number_format($laporan->jumlah, 0, ',', '.') }}</td>
+              </tr>
+            @empty
+              <tr>
+                <td colspan="3" class="py-2 px-4 text-center text-gray-500">Belum ada data pemasukan.</td>
+              </tr>
+            @endforelse
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <!-- Tabel Pengeluaran -->
-  <section class="mb-10">
-    <h2 class="text-xl font-semibold mb-2 text-gray-700">Detail Pengeluaran</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white rounded-xl shadow text-sm">
-        <thead class="bg-[#d2cc8c] text-gray-800">
-          <tr>
-            <th class="py-2 px-4 text-left">Tanggal</th>
-            <th class="py-2 px-4 text-left">Keterangan</th>
-            <th class="py-2 px-4 text-left">Jumlah</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200">
-          <tr>
-            <td class="py-2 px-4">05 Mei 2025</td>
-            <td class="py-2 px-4">Pembelian Karpet</td>
-            <td class="py-2 px-4 text-red-600 font-semibold">Rp 1.200.000</td>
-          </tr>
-          <tr>
-            <td class="py-2 px-4">12 Mei 2025</td>
-            <td class="py-2 px-4">Operasional Listrik</td>
-            <td class="py-2 px-4 text-red-600 font-semibold">Rp 800.000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-</main>
+    <!-- Tabel Pengeluaran -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 text-gray-700">Detail Pengeluaran</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-xl shadow text-sm">
+          <thead class="bg-[#d2cc8c] text-gray-800">
+            <tr>
+              <th class="py-2 px-4 text-left">Tanggal</th>
+              <th class="py-2 px-4 text-left">Keterangan</th>
+              <th class="py-2 px-4 text-left">Jumlah</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            @forelse ($laporans->where('jenis', 'pengeluaran') as $laporan)
+              <tr>
+                <td class="py-2 px-4">{{ \Carbon\Carbon::parse($laporan->tanggal)->format('d M Y') }}</td>
+                <td class="py-2 px-4">{{ $laporan->keterangan }}</td>
+                <td class="py-2 px-4 text-red-600 font-semibold">Rp {{ number_format($laporan->jumlah, 0, ',', '.') }}</td>
+              </tr>
+            @empty
+              <tr>
+                <td colspan="3" class="py-2 px-4 text-center text-gray-500">Belum ada data pengeluaran.</td>
+              </tr>
+            @endforelse
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
 
   
    <!-- Footer dengan peta -->
