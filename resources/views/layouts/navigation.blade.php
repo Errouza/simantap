@@ -36,6 +36,9 @@
                     <x-nav-link href="/admin/keuangan" :active="request()->is('admin/keuangan*')">
                          {{ __('Laporan Keuangan') }}
                      </x-nav-link>
+                    <x-nav-link href="/admin/pengurus" :active="request()->is('admin/pengurus*')">
+                        {{ __('Pengurus') }}
+                    </x-nav-link>
                 </div>
             </div>
 

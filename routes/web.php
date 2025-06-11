@@ -67,6 +67,7 @@ Route::resource('admin/berita', App\Http\Controllers\AdminBeritaController::clas
 Route::resource('admin/reservasi', App\Http\Controllers\AdminReservasiController::class)->names('admin.reservasi');
 Route::resource('/admin/galeri', App\Http\Controllers\GaleriController::class)->names('admin.galeri');
 Route::resource('/admin/mualaf', App\Http\Controllers\AdminMualafController::class)->names('admin.mualaf');
+Route::get('/admin/pengurus', [App\Http\Controllers\AdminPengurusController::class, 'index'])->name('admin.pengurus.index');
 Route::get('/admin/mualaf', [App\Http\Controllers\AdminMualafController::class, 'index'])->name('admin.mualaf.index');
 Route::get('/admin/galeri', [App\Http\Controllers\AdminGaleriController::class, 'index'])->name('admin.galeri.index');
 Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri.index'); // untuk user
@@ -180,3 +181,12 @@ Route::post('/api/zakat/hitung', function(Request $request) {
 });
 
 require __DIR__.'/auth.php';
+
+Route::prefix('admin/galeri')->name('admin.galeri.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\AdminGaleriController::class, 'index'])->name('index');
+    Route::get('/create', [\App\Http\Controllers\AdminGaleriController::class, 'create'])->name('create');
+    Route::post('/', [\App\Http\Controllers\AdminGaleriController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [\App\Http\Controllers\AdminGaleriController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [\App\Http\Controllers\AdminGaleriController::class, 'update'])->name('update');
+    Route::get('/{id}', [\App\Http\Controllers\AdminGaleriController::class, 'show'])->name('show');
+});

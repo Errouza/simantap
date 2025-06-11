@@ -84,11 +84,11 @@
             <div class="text-sm font-semibold mb-2">Diisi Jika Acara Akad Nikah (Opsional)</div>
             <div class="grid md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs mb-1">Nama Pengantin Pria</label>
+                <label class="block text-xs mb-1">Nama Pengantin Pria (opsional)</label>
                 <input type="text" name="nama_pengantin_pria" class="w-full border border-gray-300 rounded px-3 py-2">
               </div>
               <div>
-                <label class="block text-xs mb-1">Nama Pengantin Wanita</label>
+                <label class="block text-xs mb-1">Nama Pengantin Wanita (opsional)</label>
                 <input type="text" name="nama_pengantin_wanita" class="w-full border border-gray-300 rounded px-3 py-2">
               </div>
             </div>

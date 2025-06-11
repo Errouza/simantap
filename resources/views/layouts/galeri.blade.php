@@ -36,32 +36,16 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         @forelse($acara as $item)
           <div class="bg-white rounded-xl shadow p-5 flex flex-col gap-3">
+            @if($item->gambar_path)
+              <img src="{{ asset('storage/galeri/' . $item->gambar_path) }}" alt="Foto" class="w-full h-48 object-cover rounded mb-2">
+            @endif
             <div class="flex items-center gap-2 mb-2">
               <span class="inline-block px-2 py-1 bg-[#d2cc8c] text-xs rounded-full font-semibold">{{ $item->instansi ?? '-' }}</span>
               <span class="text-xs text-gray-500 ml-auto">{{ \Carbon\Carbon::parse($item->tanggal_kegiatan)->format('d M Y') }}</span>
             </div>
             <div class="font-bold text-lg text-[#4b4b2e] mb-1">
-              @if(is_array($item->nama_kegiatan))
-                {{ implode(', ', $item->nama_kegiatan) }}
-              @else
-                {{ $item->nama_kegiatan }}
-              @endif
+              {{ $item->nama_kegiatan }}
             </div>
-            <div class="text-xs text-gray-600 mb-1">
-              Waktu: {{ $item->waktu_kegiatan }}<br>
-              Jumlah Peserta: {{ $item->jumlah_peserta ?? '-' }}
-            </div>
-            @if($item->nama_pengantin_pria || $item->nama_pengantin_wanita)
-              <div class="text-xs text-gray-700 mb-1">
-                <span class="font-semibold">Pernikahan:</span>
-                {{ $item->nama_pengantin_pria ?? '-' }} &amp; {{ $item->nama_pengantin_wanita ?? '-' }}
-              </div>
-            @endif
-            @if($item->ktp_path)
-              <div class="mt-2">
-                <a href="{{ asset('storage/'.$item->ktp_path) }}" target="_blank" class="inline-block bg-[#b7b36e] text-white px-3 py-1 rounded text-xs hover:bg-[#a5a15a] transition">Lihat Dokumentasi</a>
-              </div>
-            @endif
           </div>
         @empty
           <div class="col-span-3 text-center text-gray-500 py-8">Belum ada dokumentasi acara di aula masjid.</div>

@@ -28,12 +28,16 @@ class ReservasiController extends Controller
             'jumlah_peserta' => 'nullable|string|max:10',
             'waktu_kegiatan' => 'required|string|max:20',
             'ktp_path' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'gambar_path' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
             'persetujuan' => 'required|boolean',
             'kesediaan' => 'required|in:bersedia,tidak',
         ]);
         // Handle file upload
         if ($request->hasFile('ktp_path')) {
             $validated['ktp_path'] = $request->file('ktp_path')->store('ktp_reservasi', 'public');
+        }
+        if ($request->hasFile('gambar_path')) {
+            $validated['gambar_path'] = $request->file('gambar_path')->store('gambar_reservasi', 'public');
         }
         $validated['nama_kegiatan'] = json_encode($validated['nama_kegiatan']);
         Reservasi::create($validated);
