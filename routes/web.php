@@ -20,7 +20,7 @@ use App\Http\Controllers\AdminKeuanganController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\MualafController;
 use App\Http\Controllers\UserKeuanganController;
-
+use App\Http\Controllers\UserController;
 // Route home page
 Route::get('/home', function () {
     return view('layouts.home');
@@ -66,28 +66,16 @@ Route::resource('/admin/konsultasi', App\Http\Controllers\AdminKonsultasiControl
 Route::resource('admin/berita', App\Http\Controllers\AdminBeritaController::class)->names('admin.berita');
 Route::resource('admin/reservasi', App\Http\Controllers\AdminReservasiController::class)->names('admin.reservasi');
 Route::resource('/admin/galeri', App\Http\Controllers\GaleriController::class)->names('admin.galeri');
+Route::resource('/admin/mualaf', App\Http\Controllers\AdminMualafController::class)->names('admin.mualaf');
+Route::get('/admin/mualaf', [App\Http\Controllers\AdminMualafController::class, 'index'])->name('admin.mualaf.index');
 Route::get('/admin/galeri', [App\Http\Controllers\AdminGaleriController::class, 'index'])->name('admin.galeri.index');
 Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri.index'); // untuk user
-Route::post('/admin/orders/{order}/complete', [AdminController::class, 'completeOrder'])->name('admin.orders.complete');
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('keuangan', AdminKeuanganController::class)->names('admin.keuangan');
 
 });
 
-
-// ====== Fitur User (masih gunakan middleware role:user) ======
-Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
-    Route::get('/user/products/{product}', [UserController::class, 'show'])->name('user.products.show');
-    Route::prefix('cart')->group(function () {
-        Route::post('/add', [UserController::class, 'addToCart'])->name('cart.add');
-        Route::get('/', [UserController::class, 'cart'])->name('cart.view');
-        Route::post('/update', [UserController::class, 'updateCart'])->name('cart.update');
-        Route::delete('/remove/{key}', [UserController::class, 'removeFromCart'])->name('cart.remove');
-    });
-    Route::post('/checkout/submit', [UserController::class, 'submitCheckout'])->name('checkout.submit');
-    Route::get('/order/summary', [UserController::class, 'orderSummary'])->name('order.summary');
-});
+// ====== Dashboard & Fitur User ======;
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');

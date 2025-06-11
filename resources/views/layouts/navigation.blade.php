@@ -30,6 +30,9 @@
                     <x-nav-link href="/admin/reservasi" :active="request()->is('admin/reservasi*')">
                         {{ __('Reservasi') }}
                     </x-nav-link>
+                    <x-nav-link href="/admin/mualaf" :active="request()->is('admin/mualaf*')">
+                        {{ __('Mualaf') }}
+                    </x-nav-link>
                     <x-nav-link href="/admin/keuangan" :active="request()->is('admin/keuangan*')">
                          {{ __('Laporan Keuangan') }}
                      </x-nav-link>
