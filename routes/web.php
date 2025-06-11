@@ -19,6 +19,7 @@ use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminKeuanganController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\MualafController;
+use App\Http\Controllers\UserKeuanganController;
 
 // Route home page
 Route::get('/home', function () {
@@ -134,9 +135,7 @@ Route::post('/konsultasi', [KonsultasiController::class, 'store'])->name('konsul
 // Route untuk halaman galeri
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 
-Route::get('/laporan-keuangan', function () {
-    return view('layouts.laporan-keuangan');
-})->name('laporan-keuangan');
+Route::get('/laporan-keuangan', [UserKeuanganController::class, 'index']);
 
 
 
