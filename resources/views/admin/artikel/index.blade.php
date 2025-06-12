@@ -9,8 +9,8 @@
     <div class="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">{{ session('success') }}</div>
 @endif
 <div class="bg-white/20 dark:bg-gray-800/40 backdrop-blur-md rounded shadow p-4">
-<table class="min-w-full bg-white/10 rounded shadow text-white">
-    <thead class="bg-white/10">
+<table class="min-w-full bg-white/10 rounded shadow text-blsck">
+    <thead class="bg-black/10">
         <tr>
             <th class="p-2 font-semibold">Judul</th>
             <th class="p-2 font-semibold">Tanggal</th>
