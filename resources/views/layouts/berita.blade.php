@@ -48,7 +48,7 @@
         <div class="mb-4">
             <p class="text-lg font-semibold mb-2">Pendaftaran Pengurus Masjid</p>
             <p class="mb-4">Untuk melakukan pendaftaran pengurus, silakan klik tombol di bawah ini untuk mengisi Google Form resmi pendaftaran pengurus Masjid Jami Tangkubanperahu.</p>
-            <a href="https://forms.gle/your-google-form-link" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold transition">Isi Formulir Pendaftaran Pengurus</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBJWb18jgDP9BzQIx9FNDbi5hOAqNMgTI4kTLjy3Tm567Y6Q/viewform?usp=header" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold transition">Isi Formulir Pendaftaran Pengurus</a>
         </div>
     </div>
   </main>

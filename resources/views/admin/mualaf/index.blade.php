@@ -6,11 +6,11 @@
 </x-slot>
  <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white/20 dark:bg-gray-800/40 backdrop-blur-md overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-white">
+            <div class="bg-black/20 dark:bg-black-800/40 backdrop-blur-md overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-black">
                     <h3 class="font-bold text-lg mb-4">Daftar Konsultasi</h3>
-                    <table class="min-w-full bg-white/10 rounded shadow text-white">
-                        <thead class="bg-white/10">
+                    <table class="min-w-full bg-black/10 rounded shadow text-black">
+                        <thead class="bg-black/10">
                             <tr>
                                 <th class="p-2 font-semibold">Nama Lengkap</th>
                                 <th class="p-2 font-semibold">No. HP</th>
